@@ -1,0 +1,134 @@
+@using Projeto_Instadev.Models
+@model Comentario
+@{
+    ViewData["Title"] = "Feed";
+}
+<div class="container">
+    <main>
+        <section class="config-stories">           
+            <div class="stories flex-center-bt">                
+                <div class="perfil-stories">
+                    <a href="#"><img src="../images/vin-diesel.png" alt="#"></a>
+                    <p>Vin_Disel</p>
+                </div>
+                <div class="perfil-stories">
+                    <a href="#"><img src="../images/gabigordo 1.png" alt="#"></a>
+                    <p>gabigordo</p>
+                </div>
+                <div class="perfil-stories">
+                    <a href="#"><img src="../images/will-baiano 1.png" alt="#"></a>
+                    <p>Will_Baiano</p>
+                </div>
+                <div class="perfil-stories">
+                    <a href="#"><img src="../images/tony_stark 1.png" alt="#"></a>
+                    <p>Adriano_Stark</p>
+                </div>
+                <div class="perfil-stories">
+                    <a href="#"><img src="../images/pele 1.png" alt="#"></a>
+                    <p>King_Pele</p>
+                </div>
+                <div class="perfil-stories">
+                    <a href="#"><img src="../images/samuel-rosa-bebê 1.png" alt="#"></a>
+                    <p>Samuel_Rosa</p>
+                </div>
+                <div class="perfil-stories">
+                    <a href="#"><img src="../images/chaves_metal 1.png" alt="#"></a>
+                    <p>Chaves_Metal</p>
+                </div>
+            </div>
+        </section>
+                <aside class="perfil-lateral">
+                    @foreach (Usuario item in ViewBag.Usuario.BuscarNome(int.Parse(ViewBag.IdLogado)))
+                    {
+                        <a asp-area="" asp-controller="PaginaPerfil" asp-action="Index"><img src="../img/publicacao/@item.Foto"></a>                        
+                    }
+                    <div class="texto">
+                        <h2>@ViewBag.UserName</h2>
+                        <p>@ViewBag.Name</p>
+                    </div>
+                </aside>        
+    </main>
+    <main>
+        <section class="postar flex-center-bt">
+            <div class="itens">
+                @foreach (Usuario item in ViewBag.Usuario.BuscarNome(int.Parse(ViewBag.IdLogado)))
+                    {
+                        <img id="imagem2" src="../img/publicacao/@item.Foto">                  
+                    }
+                <div class="texto">
+                    <h2>Postar</h2>
+                </div>
+            </div>
+            <form action='@Url.Action("Publicar")' method="POST" class="botoes" enctype="multipart/form-data">
+
+                <div>
+                    <input type="text" autocomplete="off" name="descricao" placeholder="Digite a descrição da imagem...">
+                </div>
+
+                <div>
+                    <input id="escolhaImg" type="file" name="imagem" placeholder="Escolha a imagem..." required/>
+                </div>
+
+                    <button id="postarImg" type="submit">Postar</button>
+            </form>
+        </section>
+    </main>
+    <main>
+        <section>
+            @foreach (Publicacao item in ViewBag.Publicacao)
+            {
+                <div class="postagem">
+                    <div class="perfil-post">
+                        @foreach (Usuario item2 in ViewBag.Usuario.BuscarNome(item.IdUser))
+                        {
+                            <a href="#"><img class="imgPerfil" src="~/img/publicacao/@item2.Foto" alt=""></a>
+                        }
+                        <div class="texto">
+                            @foreach (Usuario item2 in ViewBag.Usuario.BuscarNome(item.IdUser))
+                            {
+                                <h2>@item2.UserName</h2>                                
+                            }
+                        </div>
+                        @if (ViewBag.IdLogado == item.IdUser.ToString())
+                        {
+                            <a class="excluir" asp-area="" asp-controller="Publicacao" asp-action="Excluir" asp-route-id="@item.IdPublicacao">Excluir</a>
+                        }
+                    </div>
+                    <div class="imagem-post">
+                        <img src="~/img/publicacao/@item.Imagem">
+                    </div>
+                    <div class="curtir-comentar">
+                        <a id="icon-curtir" href="#"><img src="../images/Vector.png"></a>
+                        <a id="icon-comentar" href="#"><img src="../images/Comentar.png"></a>
+
+                        <form action='@Url.Action("Comentar")' method="POST" enctype="multipart/form-data">
+                            <input type="hidden" value="@item.IdPublicacao" name="id_publicacao">
+                            <input type="text" autocomplete="off" name="comentar" placeholder="Comentar...">
+                        </form>
+
+                    </div>
+                    <div class="comentarios">
+                        <div class="comentario legenda">
+                            @foreach (Usuario item2 in ViewBag.Usuario.BuscarNome(item.IdUser))
+                            {
+                                <h2>@item2.UserName</h2>
+                            }
+                            <p>@item.Legenda</p>
+                        </div>
+                        @foreach (Comentario coment in ViewBag.Comentarios.BuscarId(item.IdPublicacao))
+                        {
+                            <div class="comentario">                               
+                                <h2>@coment.UserName</h2>
+                                <p>@coment.Mensagem</p>
+                                @if (ViewBag.IdLogado == coment.IdUser.ToString())
+                                {
+                                    <a class="excluir excluirComent" asp-area="" asp-controller="Publicacao" asp-action="ExcluirComent" asp-route-id="@coment.IdComentario">Excluir</a>
+                                } 
+                            </div>
+                        } 
+                    </div>
+                </div>
+            }
+        </section>
+    </main>
+</div>

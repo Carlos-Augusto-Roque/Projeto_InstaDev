@@ -1,0 +1,137 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root{
+    --azul: #2686cc;
+    --cordalinha:#CBCBCB;
+    --corplaceholder:#AFAFAF;
+    --corborda:#DCDCDC;
+    --fundo:#FAFAFA;
+    --erro:#8134AF;
+}
+body{
+    color:var(--fundo);
+    background-color:var(--fundo);
+}
+
+.conteudo-login{
+    display:flex;
+    justify-content:center; 
+}
+
+.box{
+    margin:80px auto 0 auto;
+    width:342px;
+    height:380px;
+    background-color:white;
+    border:1px #f1f1f1 solid;
+}
+
+.box img{
+    width:165px;
+    height:83px;
+    margin-top:24px;
+    margin-left:88px;
+}
+.box p{
+    text-align:center;
+    color:#CBCBCB;
+    margin-bottom:30px;   
+}
+
+form{
+    margin-top:9px;
+}
+
+.log input{
+    border:1px solid var(--corborda);
+    border-radius:2px;
+    background-color: var(--fundo);
+    color:var(--corplaceholder);
+    margin-bottom:9px;
+    margin-left:38px;
+    padding-left:12px;
+}
+
+
+.log, .log input{
+    font-size:11px;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin-right:38px;
+    border-radius:2px;
+    margin-bottom:9x;
+    width:267px;
+}
+
+.log button{
+    border-radius:2px;
+    background-color:var(--azul);
+    padding-top:10px;
+    padding-left:0;
+    margin-top:10px;
+    padding-bottom:10px;
+    font-size:12px;
+    width:267px;
+    font-weight:bold;
+    color:white;
+    border:1px solid transparent;
+    cursor:pointer;
+    margin-left:38px;
+}
+
+.below a, .box a{
+    text-decoration:none;
+    color:var(--azul);   
+}
+
+.below{
+    display:flex;
+    justify-content:center;
+    background-color:white;
+    border:1px #f1f1f1 solid;
+    color:black;
+    font-weight:bold;
+    margin:9px auto 0 auto;
+    font-size:11px;
+    padding: 30px 80px 30px 80px;
+    width:342px;
+}
+.forget p{
+    margin-bottom:9px;
+    margin-top:9px;
+}
+.final p{
+    margin-top:20px;
+    padding-bottom:20px;
+    color:black;
+    display:block;
+    text-align:center;
+    font-size:11.5px;
+}
+.final img{
+    padding-left:5px;
+}
+.aplicativos{
+    display:flex;
+    justify-content:center;
+}
+.erro{
+    color: #dd2a7b;
+    width:300px;
+    padding:10px;
+    font-weight:bold;
+    font-size:18px;
+    position:absolute;
+    margin-left:550px;
+    border-radius:5px;
+    margin-top:-810px;
+    margin-left: 820px;
+    
+}
+
+

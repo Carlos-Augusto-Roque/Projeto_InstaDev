@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Projeto_Instadev</title> 
+
+    <link rel="stylesheet" href="~/css/componentes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+        
+    @switch (ViewData["Title"].ToString())
+        {
+            case "Feed":
+                <link rel="stylesheet" href="~/css/Feed.css"/>
+            break;
+
+            case "Cadastro":
+                <link rel="stylesheet" href="~/css/usuario.css"/>
+            break;
+
+            case "Login":
+                <link rel="stylesheet" href="~/css/Loginstyle.css"/>
+            break;
+
+            case "PaginaPerfil":
+                <link rel="stylesheet" href="~/css/perfil.css"/>
+            break;
+            
+            case "Edicao":
+                <link rel="stylesheet" href="~/css/editperfil.css"/>
+            break;
+        }
+</head>
+<body>
+    @if(ViewData["Title"].ToString() != "Login" && ViewData["Title"].ToString() != "Cadastro"){
+    <header>
+        <div class="topo">
+            
+            <div class="menu">
+
+                <a href="#">
+                    <img class="logo" src="../images/logo_Instadev.png" alt="Logo do site InstaDev">
+                </a>
+                
+                <form class="barra" action="#">
+                    <input type="pesquisar" name="pesquisar" placeholder="Pesquisar">
+                </form>
+                
+                <div class="icons">
+                    <a class="home" asp-area="" asp-controller="Publicacao" asp-action="Index"><i class="fas fa-home" alt="Botão Home"></i></a>
+                    <i class="far fa-paper-plane" alt="Botão Direct"></i> 
+                    <i class="far fa-compass" alt="Botão Histórico"></i> 
+                    <i class="far fa-heart" alt="Botão Curtidas"></i>
+                    <div class="link-logout">    
+                        <li><a asp-area="" asp-controller="Login" asp-action="Logout" title="Deslogar"><i class="fas fa-door-open" alt="Sair"></i></a></li> 
+                    </div>
+                </div>
+                </div>
+            </div>
+    
+    </header>
+    }
+
+    @RenderBody()   
+
+    <!---@if(ViewData["Title"].ToString() != "Login" && ViewData["Title"].ToString() != "Cadastro"){
+        <footer>
+            <p class="rodape">© 2021 InstaDev do SENAI</p>
+        </footer>
+    }-->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Cadastro";
+}
+    <div class="conteiner">
+        <div class="cadastro">
+                <img src="../images/Instadev.jpg" alt="Logo">
+            <h1>Cadastre-se para ver fotos e <br>vídeos dos seus amigos.</h1>
+            <form action='@Url.Action("Cadastrar")' method="POST" enctype="multipart/form-data">
+                <input type="email" autocomplete="off" name="Email" placeholder="E-Mail" required><br>
+                <input type="text" autocomplete="off" name="Nome" placeholder="Nome Completo" required><br>
+                <input type="text" autocomplete="off" name="UserName" placeholder="Nome do Usuário" required><br>
+                <input type="password" name="Senha" placeholder="Senha" required><br>
+                <button id="cadastrar" type="submit" name="Botao">Cadastrar</button>
+                
+            </form>
+            <h2>Ao se cadastrar, você concorda com nossos<br>Termos, Política de Dados e Política de Cookies.</h2>
+        </div>
+
+        <div class="conectar">
+            <h2>Tem uma conta?</h2>
+                <ul>
+                    <li><a asp-area="" asp-controller="Login" asp-action="Index">Conecte-se</a></li>
+                </ul>
+        </div>
+
+        <p class="text_app">Obtenha o aplicativo.</p>
+        
+        <div class="apps">
+            <a href="https://www.apple.com/br/app-store/" target="blank"><img src="../images/app_store 1.jpg" alt="logo app store"></a>
+            <a href="https://play.google.com/store" target="blank"><img src="../images/google_play 1.jpg" alt="logo google play"></a>
+        </div>
+        
+    </div>

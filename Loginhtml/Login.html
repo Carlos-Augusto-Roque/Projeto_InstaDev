@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Loginstyle.css">
+    <title>Home Page</title>
+</head>
+
+<body>
+  
+    <section class="conteudo-login">
+        <div class="box">
+            <img src="images/Instadev.svg" alt="Imagem do Logo Instadev">
+
+            <form  method="POST" class="log" action='@Url.Action("Logar")' enctype="multipart/form-data">
+
+                <div>
+                <input type="email" name="Email" placeholder="Email...">
+                </div>
+
+                <div>
+                <input type="password" name="Senha" placeholder="Senha...">
+                </div>
+                
+                <button type="submit" name="Botao">Enviar</button>
+                
+            </form>
+       
+            <div class="forget">
+            <p style="font-variant:small-caps;">__________________   ou   _________________</p>
+            <p style="font-size:11px;"><a href="#" alt="">Esqueceu a senha ?</a></p>
+            </div>
+        
+        <div class="below">
+            <p>Não tem uma conta? <a id="cadastro" href="#" alt="Cadastre-se">  <span id="cadastro">Cadastre-se.</span></a></p>
+        </div>
+
+        <div class="final">
+            <p>Obtenha o aplicativo</p>
+            <div class="aplicativos">
+                <a href="https://www.apple.com/br/app-store/" alt=""><img src="images/app_store 1.jpg" alt=""></a><a href="https://play.google.com/store" alt=""><img src="images/google_play 1.jpg" alt=""></a>
+            </div>
+        </div>
+    </div>
+    </section>
+    
+</body>
+
+</html>
